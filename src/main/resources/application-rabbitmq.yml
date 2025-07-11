@@ -1,0 +1,20 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username : guest
+    password: guest
+
+rabbitmq:
+  exchanges:
+    interaction: interaction.exchange
+    embeddingStatus: embeddingStatus.exchange
+    batch: batch.exchange
+  queues:
+    interaction: interaction.queue
+    embeddingStatus: embeddingStatus.queue
+    batch: batch.queue
+  routing-keys:
+    interaction: interaction.key
+    embeddingStatus: embeddingStatus.key
+    batch: batch.key

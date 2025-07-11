@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: demo
+
+  profiles:
+    include:
+      - rabbitmq
+      - db
+
+server:
+  port: 8088
