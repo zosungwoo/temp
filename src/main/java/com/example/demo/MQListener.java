@@ -12,7 +12,7 @@ public class MQListener {
 
     private final MQSender mqSender;
 
-    @RabbitListener(queues = "${rabbitmq.queues.interaction}", concurrency = "5")
+    @RabbitListener(queues = "${rabbitmq.queues.interaction}", concurrency = "4")
     public void receiveBatchJobRequest(MemberInteractionMessage message) {
         System.out.println("Received message: " + message);
         log.info("RabbitMQ 배치 작업 요청 메시지 수신 - interactionType: {}, memberId: {}, rstList: {}",
