@@ -24,15 +24,16 @@ public class TestService {
             int a = 1;
             int b = 1;
             long startTime = System.currentTimeMillis();
-            long delay = 960; // 1초 (1000 밀리초)
+            long delay = 1; // 1초 (1000 밀리초)
 
 //            Thread.sleep(delay); // 1초 대기 (테스트용)
             while (System.currentTimeMillis() - startTime < delay) {
                 int c = a * (b++);
             }
         } catch (Exception e) {
+            log.error("배치 작업 실패: {}", e.getMessage());  // 로깅만 수행 (예외 발생 시 ACK가 전송되지 않아 무한루프 발생)
+            throw new RuntimeException("배치 작업 실패", e);
 //            mqSender.sendEmbeddingStatus(new MemberEmbeddingStatusMessage(message.memberId(), false));
-//            log.error("배치 작업 실패: {}", e.getMessage());  // 로깅만 수행 (예외 발생 시 ACK가 전송되지 않아 무한루프 발생)
         }
         log.info(String.valueOf(System.currentTimeMillis()));
         log.info("성공");
