@@ -19,6 +19,10 @@ public class TestService {
 //    private final MQSender mqSender;
     public void test() {
         embeddingRepository.findById(1L);
+        embeddingRepository.findById(2L);
+        embeddingRepository.findById(3L);
+        embeddingRepository.save(Embedding.builder().embedding("HI").build());
+        embeddingRepository.save(Embedding.builder().embedding("HI").build());
         embeddingRepository.save(Embedding.builder().embedding("HI").build());
     }
 
