@@ -5,6 +5,7 @@ import lombok.*;
 
 @Entity
 @Builder
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Embedding {

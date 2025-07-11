@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 @Slf4j
@@ -18,12 +19,12 @@ public class TestService {
     private final EmbeddingRepository embeddingRepository;
 //    private final MQSender mqSender;
     public void test() {
-        embeddingRepository.findById(1L);
+        Optional<Embedding> byId = embeddingRepository.findById(1L);
         embeddingRepository.findById(2L);
         embeddingRepository.findById(3L);
-        embeddingRepository.save(Embedding.builder().embedding("HI").build());
-        embeddingRepository.save(Embedding.builder().embedding("HI").build());
-        embeddingRepository.save(Embedding.builder().embedding("HI").build());
+        embeddingRepository.findById(4L);
+        embeddingRepository.findById(5L);
+        byId.get().setEmbedding("test2");
     }
 
     public void sendTestMessage(MemberInteractionMessage memberInteractionMessage) {
