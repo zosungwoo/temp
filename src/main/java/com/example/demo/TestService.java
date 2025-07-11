@@ -3,6 +3,7 @@ package com.example.demo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +12,15 @@ import java.util.Random;
 @Slf4j
 @RequiredArgsConstructor
 @Service
+@Transactional
 public class TestService {
 
     private final EmbeddingRepository embeddingRepository;
 //    private final MQSender mqSender;
+    public void test() {
+        embeddingRepository.findById(1L);
+        embeddingRepository.save(Embedding.builder().embedding("HI").build());
+    }
 
     public void sendTestMessage(MemberInteractionMessage memberInteractionMessage) {
         try {

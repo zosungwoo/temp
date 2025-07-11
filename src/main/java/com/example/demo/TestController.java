@@ -23,5 +23,10 @@ public class TestController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping("/test2")
+    public ResponseEntity<Void> getRestaurantCandidates2(){
+        testService.test();
+        return ResponseEntity.ok().build();
+    }
 
 }
