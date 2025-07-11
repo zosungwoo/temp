@@ -19,12 +19,13 @@ public class TestService {
     public void sendTestMessage(MemberInteractionMessage memberInteractionMessage) {
         try {
             float[] embed = embed();
+            embeddingRepository.findById(1L);
             embeddingRepository.save(Embedding.builder().embedding(embed.toString()).build());
             // 테스트이므로 약 1초정도 걸리는 연산 수행할 것임
             int a = 1;
             int b = 1;
             long startTime = System.currentTimeMillis();
-            long delay = 10; // 1초 (1000 밀리초)
+            long delay = 5; // 1초 (1000 밀리초)
 
 //            Thread.sleep(delay); // 1초 대기 (테스트용)
             while (System.currentTimeMillis() - startTime < delay) {
