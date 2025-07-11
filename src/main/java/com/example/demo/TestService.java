@@ -20,11 +20,16 @@ public class TestService {
 //    private final MQSender mqSender;
     public void test() {
         Optional<Embedding> byId = embeddingRepository.findById(1L);
-        embeddingRepository.findById(2L);
+        Optional<Embedding> byId1 = embeddingRepository.findById(2L);
         embeddingRepository.findById(3L);
         embeddingRepository.findById(4L);
         embeddingRepository.findById(5L);
+        embeddingRepository.findById(6L);
+        embeddingRepository.findById(7L);
+        embeddingRepository.findById(8L);
+        embeddingRepository.findById(9L);
         byId.get().setEmbedding("test2");
+        byId1.get().setEmbedding("test2");
     }
 
     public void sendTestMessage(MemberInteractionMessage memberInteractionMessage) {
