@@ -24,7 +24,7 @@ public class TestService {
             int a = 1;
             int b = 1;
             long startTime = System.currentTimeMillis();
-            long delay = 1; // 1초 (1000 밀리초)
+            long delay = 960; // 1초 (1000 밀리초)
 
 //            Thread.sleep(delay); // 1초 대기 (테스트용)
             while (System.currentTimeMillis() - startTime < delay) {
@@ -74,9 +74,9 @@ public class TestService {
         }
 
         // 새로운 유저 임베딩 출력 (예시)
-        for (float value : newUserEmbedding) {
-            System.out.print(value + " ");
-        }
+//        for (float value : newUserEmbedding) {
+//            System.out.print(value + " ");
+//        }
 
         return newUserEmbedding;
     }
